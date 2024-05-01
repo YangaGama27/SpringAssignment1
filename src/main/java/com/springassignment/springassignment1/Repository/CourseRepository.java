@@ -1,10 +1,11 @@
-package com.springassignment.springassignment1.Repository;
+package com.springassignment.springassignment1.Exception;
 
-import com.springassignment.springassignment1.Model.Courses;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-@Repository
-public interface CourseRepository extends JpaRepository<Courses, Long> {
-
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+public class ResourceNotFoundException extends RuntimeException {
+    public ResourceNotFoundException(String message) {
+        super(message);
+    }
 }
