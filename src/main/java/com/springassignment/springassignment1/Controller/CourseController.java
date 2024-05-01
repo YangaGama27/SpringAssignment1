@@ -4,7 +4,6 @@ import com.springassignment.springassignment1.Exception.ResourceNotFoundExceptio
 import com.springassignment.springassignment1.Model.Courses;
 import com.springassignment.springassignment1.Repository.CourseRepository;
 import jakarta.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -65,4 +64,3 @@ public class CourseController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
-
