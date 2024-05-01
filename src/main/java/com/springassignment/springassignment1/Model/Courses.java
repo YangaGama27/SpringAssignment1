@@ -2,6 +2,7 @@ package com.springassignment.springassignment1.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -11,11 +12,13 @@ public class Courses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @NotBlank(message = "Course code is required")
     @Size(max = 10, message = "Course code must be at most 10 characters")
     @Column(name = "CourseCode")
     private String courseCode;
 
+    @NotNull
     @NotBlank(message = "Course name is required")
     @Size(max = 255, message = "Course name must be at most 255 characters")
     @Column(name = "CourseName")
