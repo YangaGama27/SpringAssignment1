@@ -1,84 +1,48 @@
 package com.springassignment.springassignment1;
 
+
+import com.springassignment.springassignment1.Model.Courses;
+import com.springassignment.springassignment1.Repository.CourseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 
 @SpringBootApplication
-@RestController
-public class SpringAssignment1Application {
+public class SpringAssignment1Application implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringAssignment1Application.class, args);
     }
-    @GetMapping("/All Courses")
-    public String getAllCourses() {
-        return "<html><body>" +
-                "<h1>Available courses for Foundation Courses</h1>" +
-                "<p>(1) CSC111F: Computer Literacy for Science</p>" +
-                "<p>(2) CSC121F: Introduction to Programming Concepts</p>" +
 
-                "<h1>Available courses for Undergraduate Courses</h1>" +
-                "<p>(1) CSC113: Introduction to Computing and Programming Concepts</p>" +
-                "<p>(2) CSC121: Elementary Computer Programming\n</p>" +
-                "<p>(3) CSC211: Advanced Programming\n</p>" +
-                "<p>(4) CSC312: Operating Systems</p>" +
-                "<p>(5) CSC313: Object Oriented Programming\n</p>" +
+    @Autowired
+    private CourseRepository courseRepository;
 
-                "<h1>Available courses for Honours Courses</h1>" +
-                "<p>(1) CSC501: Mini Project</p>" +
-                "<p>(2) CSC512: Computer Networks</p>" +
-                "<p>(3) CSC513: Distributed and Parallel Computing</p>" +
-                "<p>(4) CSC515: Advanced Java</p>" +
+    @Override
+    public void run(String... args) throws Exception {
+        Courses courses = new Courses("CSC111F", "Computer Literacy for Science");
+        courseRepository.save(courses);
+        Courses courses1 = new Courses("CSC121F", "Introduction to Programming Concepts");
+        courseRepository.save(courses1);
 
-        "<button onclick=\"goBack()\">Back</button>" +
-                "<script>function goBack() {window.location.href = " +
-                "\"http://localhost:63342/SpringAssignment1/static/Index.html?_ijt=nc0cn3q7bb6uli1l1egj006442&_ij_reload=RELOAD_ON_SAVE\";;}</script>" +
-                "</body></html>";
+        Courses courses2 = new Courses("CSC113", "Introduction to Computing and Programming Concepts");
+        courseRepository.save(courses2);
+        Courses courses3 = new Courses("CSC121", "Elementary Computing Programming");
+        courseRepository.save(courses3);
+        Courses courses4 = new Courses("CSC211", "Advanced Programming");
+        courseRepository.save(courses4);
+        Courses courses5 = new Courses("CSC312", "Operating System");
+        courseRepository.save(courses5);
+        Courses courses6 = new Courses("CSC313", "Object Oriented");
+        courseRepository.save(courses6);
+
+        Courses courses7 = new Courses("CSC501", "Mini Project");
+        courseRepository.save(courses7);
+        Courses courses8 = new Courses("CSC512", "Computer Networks");
+        courseRepository.save(courses8);
+        Courses courses9 = new Courses("CSC513", "Distributed and Parallel Computing");
+        courseRepository.save(courses9);
+        Courses courses10 = new Courses("CSC515", "Advanced Java");
+        courseRepository.save(courses10);
     }
-    @GetMapping("/Foundation")
-    public String getFoundationCourses() {
-        return "<html><body>" +
-                "<h1>Available courses for Foundation Courses</h1>" +
-                "<p>(1) CSC111F: Computer Literacy for Science</p>" +
-                "<p>(2) CSC121F: Introduction to Programming Concepts</p>" +
-
-                "<button onclick=\"goBack()\">Back</button>" +
-                "<script>function goBack() {window.location.href = " +
-                "\"http://localhost:63342/SpringAssignment1/static/Index.html?_ijt=nc0cn3q7bb6uli1l1egj006442&_ij_reload=RELOAD_ON_SAVE\";;}</script>" +
-                "</body></html>";
-    }
-
-    @GetMapping("/Undergraduate")
-    public String getUndergraduateCourses() {
-        return "<html><body>" +
-                "<h1>Available courses for Undergraduate Courses</h1>" +
-                "<p>(1) CSC113: Introduction to Computing and Programming Concepts</p>" +
-                "<p>(2) CSC121: Elementary Computer Programming\n</p>" +
-                "<p>(3) CSC211: Advanced Programming\n</p>" +
-                "<p>(4) CSC312: Operating Systems</p>" +
-                "<p>(5) CSC313: Object Oriented Programming\n</p>" +
-
-                "<button onclick=\"goBack()\">Back</button>" +
-                "<script>function goBack() {window.location.href = " +
-                "\"http://localhost:63342/SpringAssignment1/static/Index.html?_ijt=nc0cn3q7bb6uli1l1egj006442&_ij_reload=RELOAD_ON_SAVE\";;}</script>" +
-                "</body></html>";
-    }
-
-    @GetMapping("/Honours")
-    public String getHonoursCourses() {
-        return "<html><body>" +
-                "<h1>Available courses for Honours Courses</h1>" +
-                "<p>(1) CSC501: Mini Project</p>" +
-                "<p>(2) CSC512: Computer Networks</p>" +
-                "<p>(3) CSC513: Distributed and Parallel Computing</p>" +
-                "<p>(4) CSC515: Advanced Java</p>" +
-                "<button onclick=\"goBack()\">Back</button>" +
-                "<script>function goBack() {window.location.href = " +
-                "\"http://localhost:63342/SpringAssignment1/static/Index.html?_ijt=nc0cn3q7bb6uli1l1egj006442&_ij_reload=RELOAD_ON_SAVE\";;}</script>" +
-                "</body></html>";
-    }
-
 }
