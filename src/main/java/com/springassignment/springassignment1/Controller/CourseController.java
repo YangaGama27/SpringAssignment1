@@ -49,6 +49,7 @@ public class CourseController {
 
         updatedCourses.setCourseCode(CourseDetails.getCourseCode());
         updatedCourses.setCourseName(CourseDetails.getCourseName());
+        updatedCourses.setCourseCatalogue(CourseDetails.getCourseCatalogue());
 
         courseRepository.save(updatedCourses);
         return ResponseEntity.ok(updatedCourses);
